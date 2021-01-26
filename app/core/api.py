@@ -1,5 +1,6 @@
-from . import records
-from .models import Record
+from . import core
+
+from app.models import Record
 
 @records.route("/status")
 def status():
