@@ -1,7 +1,7 @@
 from . import records
 from .models import Record
 
-@records.route("/status"):
+@records.route("/status")
 def status():
     return f"diagnose app: Version 1"
 

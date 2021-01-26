@@ -1,4 +1,4 @@
-from app import db
+from app.models import db
 
 class Record(db.Model):
     """This class handles diagnosis records"""
