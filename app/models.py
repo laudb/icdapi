@@ -25,3 +25,14 @@ class Record(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    def __repr__(self):
+        return f"<Record-{self.year}-{self.code}-{self.type}>"
+
+    def serialise(self):
+        return {
+            'code': self.code,
+            'desc_short': self.desc_short,
+            'type': self.type,
+            'year': self.year
+        }
