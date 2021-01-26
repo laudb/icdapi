@@ -1,4 +1,4 @@
-from . import core
+from . import records
 
 from app.models import Record
 

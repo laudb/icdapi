@@ -4,6 +4,7 @@ from app.models import Record
 from flask_script import Manager, Shell
 from flask_migrate import MigrateCommand
 
+print({'env--':os.getenv('APP_ENV') })
 app = create_app(os.getenv('APP_ENV'))
 manager = Manager(app)
 

@@ -14,7 +14,7 @@ def create_app(config):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    from .app import app as api
-    app.register_blueprint(api)
+    from .core import records as r
+    app.register_blueprint(r)
 
     return app
