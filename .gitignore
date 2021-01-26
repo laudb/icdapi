@@ -2,3 +2,5 @@ __pycache__
 *.pyc
 icd-env/
 .env
+.pytest_cache
+.vscode
