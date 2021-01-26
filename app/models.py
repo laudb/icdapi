@@ -1,4 +1,4 @@
-from app.models import db
+from app import db
 
 class Record(db.Model):
     """This class handles diagnosis records"""
@@ -8,8 +8,8 @@ class Record(db.Model):
     code = db.Column(db.Integer, primary_key=True)
     desc_short = db.Column(db.String(20))
     desc_long = db.Column(db.String(80))
-    type = db.Colum(db.String(10))
-    year = db.Column(db.Integer(6))
+    type = db.Column(db.String(10))
+    year = db.Column(db.Integer())
 
     def __init__(self, code, desc_short, desc_long, type, year):
         self.code = code
