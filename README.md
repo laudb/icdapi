@@ -5,6 +5,10 @@
 - Docker, Dokcer-Compose
 - PostgreSQL
 
+## Project can be setup and run in 2 ways:
+
+## Method 1
+
 ### Set up the project
 
 - Clone the project from its repository
@@ -18,6 +22,12 @@
 ### Run the project
 
 - python runner.py runserver
+
+## Method 2
+
+- Clone the project from its repository
+- Get the .env file and set the respective variables
+- docker
 
 ### API Endpoints
 
