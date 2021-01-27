@@ -1,4 +1,4 @@
-### Project Requirement
+### Project Specs
 
 - Python 3.9
 - Linux Ubuntu
