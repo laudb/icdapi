@@ -10,28 +10,33 @@ def status():
 
 @records.route("/records", methods=["GET"])
 def show_all():
-    records = Record.query.all()
+    records = Record.query.all() # consider query params for pagination
     return records
 
 @records.route("/records", methods=["POST"])
 def create():
     payload = request.get_json()
-    result = Record(payload)
+    result = Record(payload) # validate respective sections on input before saving
     result = result.save()
     return str(result)
 
 @records.route("/records/<int: id>", methods=["PUT"])
 def edit_one(id):
-    pass
+    record = Record.query.get_or_404(id)
+    data = request.get_json()
+    for one in data:
+        record[one] = data[one] 
+    result = record.save()
+    return result
 
 @records.route("/records/<int: id>", methods=["GET"])
 def get_one(id):
     record = Record.query.get_or_404(id)
-    return record 200
+    return record
 
 @records.route("/records/<int: id>", methods=["DELETE"])
 def delete_one(id):
     record = Record.query.get_or_404(id)
     record.delete()
-    return id 200
+    return id
 
