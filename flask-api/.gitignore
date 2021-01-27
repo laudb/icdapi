@@ -3,4 +3,4 @@ __pycache__
 icd-env/
 .env
 .pytest_cache
-.vscode
+.vscode/
