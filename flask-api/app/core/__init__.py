@@ -1,4 +1,4 @@
-from flask import Blueprint, request,jsonify
+from flask import Blueprint
 
 records = Blueprint('records', '__name__')
 

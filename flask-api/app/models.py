@@ -5,7 +5,7 @@ class Record(db.Model):
 
     __tablename__ = 'records'
 
-    code = db.Column(db.Integer, primary_key=True)
+    code = db.Column(db.String(20), primary_key=True)
     desc_short = db.Column(db.String(20))
     desc_long = db.Column(db.String(80))
     type = db.Column(db.String(10))
