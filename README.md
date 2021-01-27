@@ -1,9 +1,12 @@
 ### Project Specs
 
+Project consists of different parts: the main application, database, etc. The application folder can be run individually if needed provided the right environment variables are available.
+
 - Python 3.9
 - Linux Ubuntu
 - Docker, Dokcer-Compose
 - PostgreSQL
+- .env file
 
 ## Project can be setup and run in 2 ways:
 
@@ -31,9 +34,11 @@
 
 ### API Endpoints
 
-GET /status
-GET /records
-POST /records
-POST /records/:id
-EDIT /records/:id
-DELETE /records/:id
+| Request |   Endpoint   | Payload | Response | Status Code |
+| ------- | :----------: | :-----: | :------: | ----------- |
+| GET     |   /status    |    -    |          | 200         |
+| GET     |   /records   |    -    |          | 200         |
+| POST    |   /records   |  {...}  |          | 201         |
+| GET     | /records/:id |   :id   |          | 200         |
+| PUT     | /records/:id |   :id   |          | 201         |
+| DELETE  | /records/:id |   :id   |          | 200         |
