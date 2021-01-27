@@ -27,8 +27,11 @@ def edit_one(id):
 @records.route("/records/<int: id>", methods=["GET"])
 def get_one(id):
     record = Record.query.get_or_404(id)
+    return record 200
 
 @records.route("/records/<int: id>", methods=["DELETE"])
 def delete_one(id):
-    pass
+    record = Record.query.get_or_404(id)
+    record.delete()
+    return id 200
 
