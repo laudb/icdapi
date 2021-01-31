@@ -1,4 +1,5 @@
-from flask import request,jsonify
+from flask import request, jsonify
+from app import db
 from . import records
 
 from app.models import Record
@@ -8,9 +9,12 @@ from app.models import Record
 def status():
     return f"diagnose api: Version 1"
 
-@records.route("/records", methods=["GET"])
-def show_all():
-    records = Record.query.all() # consider query params for pagination
+@records.route("/records/page/<int:id>", methods=["GET"])
+def show_all(page=1):
+    batch = 20
+    records = Record.query.order_by(
+        Record.code.desc()
+    ).paginate(page, per_page=batch)
     return records
 
 @records.route("/records", methods=["POST"])
@@ -20,7 +24,7 @@ def create():
     result = result.save()
     return str(result)
 
-@records.route("/records/<int: id>", methods=["PUT"])
+@records.route("/records/<int:id>", methods=["PUT"])
 def edit_one(id):
     record = Record.query.get_or_404(id)
     data = request.get_json()
@@ -29,12 +33,12 @@ def edit_one(id):
     result = record.save()
     return result
 
-@records.route("/records/<int: id>", methods=["GET"])
+@records.route("/records/<int:id>", methods=["GET"])
 def get_one(id):
     record = Record.query.get_or_404(id)
     return record
 
-@records.route("/records/<int: id>", methods=["DELETE"])
+@records.route("/records/<int:id>", methods=["DELETE"])
 def delete_one(id):
     record = Record.query.get_or_404(id)
     record.delete()
