@@ -7,13 +7,13 @@ services:
       - db
     environment: 
       STAGE: staging
-      SQLALCHEMY_DATABASE_URI: postgresql://$db_user:$db_password@$db_host:$db_port/$db_name
+      SQLALCHEMY_DATABASE_URI: postgresql://${db_user}:${db_password}@${db_host}:${db_port}/${db_name}
     networks:
       - default
     ports:
       - 5000:5000
     volumes:
-      - ./app:/usr/src/app/app
+      - ./flask-api:/usr/src/app/app
       - ./migrations:/usr/src/app/migrations
     restart: always
     env_file:
@@ -21,17 +21,17 @@ services:
 
   db:
     environment:
-      db_user: postgres
-      db_password: sergtsop
-      db_host: localhost
-      db_name: diagnosedb
-      db_port: 5432
-      test_db_name: testdiagnosedb
+      db_user: ${db_user}
+      db_password: ${db_password}
+      db_host: ${db_host}
+      db_name: ${db_name}
+      db_port: ${db_port}
+      test_db_name: ${test_db_name}
     image: postgres:11
     networks:
       - default
     ports: 
-      - 5433:5432
+      - 5434:5434
     restart: always
     volumes: 
       - ./postgres-data:/var/lib/postgresql/data 
