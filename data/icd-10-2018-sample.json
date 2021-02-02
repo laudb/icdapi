@@ -1,46 +1,44 @@
-{
-    "data": [
-        {
-            "code": "A000",
-            "desc_short": "Cholera due to Vibrio cholerae 01, biovar cholerae",
-            "desc_long": "Cholera due to Vibrio cholerae 01, biovar cholerae",
-            "type": "ICD10",
-            "year": "2018"
-        },
-        {
-            "code": "A001",
-            "desc_short": "Cholera due to Vibrio cholerae 01, biovar eltor",
-            "desc_long": "Cholera due to Vibrio cholerae 01, biovar eltor",
-            "type": "ICD10",
-            "year": "2018"
-        },
-        {
-            "code": "A009",
-            "desc_short": "Cholera, unspecified",
-            "desc_long": "Cholera, unspecified",
-            "type": "ICD10",
-            "year": "2018"
-        },
-        {
-            "code": "A0100",
-            "desc_short": "Typhoid fever, unspecified",
-            "desc_long": "Typhoid fever, unspecified",
-            "type": "ICD10",
-            "year": "2018"
-        },
-        {
-            "code": "A0101",
-            "desc_short": "Typhoid meningitis",
-            "desc_long": "Typhoid meningitis",
-            "type": "ICD10",
-            "year": "2018"
-        },
-        {
-            "code": "A0102",
-            "desc_short": "Typhoid fever with heart involvement",
-            "desc_long": "Typhoid fever with heart involvement",
-            "type": "ICD10",
-            "year": "2018"
-        }
-    ]
-}
+[
+    {
+        "code": "A000",
+        "desc_short": "Cholera due to Vibrio cholerae 01, biovar cholerae",
+        "desc_long": "Cholera due to Vibrio cholerae 01, biovar cholerae",
+        "type": "ICD10",
+        "year": "2018"
+    },
+    {
+        "code": "A001",
+        "desc_short": "Cholera due to Vibrio cholerae 01, biovar eltor",
+        "desc_long": "Cholera due to Vibrio cholerae 01, biovar eltor",
+        "type": "ICD10",
+        "year": "2018"
+    },
+    {
+        "code": "A009",
+        "desc_short": "Cholera, unspecified",
+        "desc_long": "Cholera, unspecified",
+        "type": "ICD10",
+        "year": "2018"
+    },
+    {
+        "code": "A0100",
+        "desc_short": "Typhoid fever, unspecified",
+        "desc_long": "Typhoid fever, unspecified",
+        "type": "ICD10",
+        "year": "2018"
+    },
+    {
+        "code": "A0101",
+        "desc_short": "Typhoid meningitis",
+        "desc_long": "Typhoid meningitis",
+        "type": "ICD10",
+        "year": "2018"
+    },
+    {
+        "code": "A0102",
+        "desc_short": "Typhoid fever with heart involvement",
+        "desc_long": "Typhoid fever with heart involvement",
+        "type": "ICD10",
+        "year": "2018"
+    }
+]
