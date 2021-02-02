@@ -1,0 +1,37 @@
+version: '3.6'
+
+services:
+  flask-api:
+    build: ./flask-api/
+    depends_on:
+      - db
+    environment: 
+      STAGE: staging
+      SQLALCHEMY_DATABASE_URI: postgresql://$db_user:$db_password@$db_host:$db_port/$db_name
+    networks:
+      - default
+    ports:
+      - 5000:5000
+    volumes:
+      - ./app:/usr/src/app/app
+      - ./migrations:/usr/src/app/migrations
+    restart: always
+    env_file:
+      - ./flask-api/.env
+
+  db:
+    environment:
+      db_user: postgres
+      db_password: sergtsop
+      db_host: localhost
+      db_name: diagnosedb
+      db_port: 5432
+      test_db_name: testdiagnosedb
+    image: postgres:11
+    networks:
+      - default
+    ports: 
+      - 5433:5432
+    restart: always
+    volumes: 
+      - ./postgres-data:/var/lib/postgresql/data 
