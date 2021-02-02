@@ -38,7 +38,7 @@ db_port=''
 
 - python runner.py runserver
 
-## Method 2
+## Method 2 (incomplete)
 
 - Clone the project from its repository
 - Get the .env file and set the respective variables
