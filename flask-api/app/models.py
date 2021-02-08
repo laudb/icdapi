@@ -25,7 +25,15 @@ class Record(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+    
+    @staticmethod
+    def is_icd_valid(code):
+        if code and type(code) == 'str'and len(code) >= 3 and len(code) <= 8:
+            return True
+        else:
+            return False
 
+                
     def __repr__(self):
         return f"<Record-{self.year}-{self.code}-{self.type}>"
 

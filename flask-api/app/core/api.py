@@ -20,9 +20,11 @@ def show_all(page=1):
 @records.route("/records", methods=["POST"])
 def create():
     payload = request.get_json()
-    result = Record(payload) # validate respective sections on input before saving
-    result = result.save()
-    return str(result)
+    valid = Record.is_icd_valid(payload['code'])
+    if valid:
+        result = Record(payload)
+        result = result.save()
+        return str(result)
 
 @records.route("/records/<int:id>", methods=["PUT"])
 def edit_one(id):

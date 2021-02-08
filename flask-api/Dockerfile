@@ -12,6 +12,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 EXPOSE 5000
 
-ENTRYPOINT [ "python3" ]
-
-CMD [ "runner.py runserver" ]
+CMD python3 runner.py runserver

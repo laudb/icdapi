@@ -54,3 +54,26 @@ db_port=''
 | GET     | /records/:id |                                `id`                                 |          | 200         |
 | PUT     | /records/:id |                                `id`                                 |          | 201         |
 | DELETE  | /records/:id |                                `id`                                 |          | 200         |
+
+ICD-9
+3-5 characters length
+first-digit: alphanumeric
+digit 2 - 5: numeric
+
+---
+
+A23, 02311
+
+ICD-10
+3-7 characters length
+first-digit: alphabet
+digit 2 - 3: numeric
+digit 4 - 7: numeric
+
+---
+
+A12456
+
+not ICD-9-CM, ICD-10-PCS
+
+Find out more (here)[https://www.m-scribe.com/blog/the-6-major-differences-between-icd-9-and-icd-10-codes#:~:text=ICD%2D9%20codes%20can%20contain,not%20covered%20under%20ICD%2D9.] and (here)[https://www.webpt.com/blog/understanding-icd-10-code-structure/] and (here)[https://icd.who.int/icd11refguide/en/index.html]
