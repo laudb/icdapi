@@ -10,12 +10,15 @@ def status():
 
 @records.route("/records/page/<int:page_id>", methods=["GET"])
 def show_all(page_id=1):
+    
     batch = 20
     pagination = Record.query.order_by(Record.code.desc()).paginate(page_id, per_page=batch)
     records = pagination.items
+    
     prev = None
     if pagination.has_prev:
         prev = url_for('api.get_posts', page=page-1)
+    
     next = None
     if pagination.has_next:
         next = url_for('api.get_posts', page=page+1)
