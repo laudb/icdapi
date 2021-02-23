@@ -28,8 +28,9 @@ class Record(db.Model):
     
     @staticmethod
     def is_icd_valid(code):
-        if code and type(code) == 'str'and len(code) >= 3 and len(code) <= 8:
-            return True
+        if code is not None:
+            if len(code) >= 3 and len(code) <= 8:
+                return True
         else:
             return False
 
