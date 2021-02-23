@@ -1,9 +1,8 @@
-from flask import request, jsonify
+from flask import request
 from app import db
 from . import records
 
 from app.models import Record
-
 
 @records.route("/status", methods=["GET"])
 def status():

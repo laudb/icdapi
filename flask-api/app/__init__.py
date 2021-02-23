@@ -1,4 +1,5 @@
-from flask import Flask,jsonify
+from flask import Flask, jsonify
+from flask_validator import validate_common, Validator
 from flask_migrate import Migrate, MigrateCommand
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager, Command, Shell
@@ -21,6 +22,7 @@ def resource_not_found(e):
 
 def create_app(input):
     app = Flask(__name__)
+    Validator(app)
     app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config.from_object(input)
