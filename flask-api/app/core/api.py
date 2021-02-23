@@ -35,10 +35,13 @@ def create():
     payload = request.get_json()
     valid = Record.is_icd_valid(payload['code'])
     if not valid:
-        return 400
-    result = Record(payload)
+        return jsonify({ 'message': 'Invalid input' }), 400
+    result = Record(
+        code=payload['code'], desc_short=payload['desc_short'], desc_long=payload['desc_long'],
+        type=payload['type'], year=payload['year']
+    )
     result = result.save()
-    return result.id, 201
+    return jsonify({ 'status': 'created' }), 201
 
 @records.route("/records/<int:id>", methods=["PUT"])
 def edit_one(id):
