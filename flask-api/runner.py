@@ -5,6 +5,7 @@ from flask_script import Manager, Shell, Server
 from flask_migrate import MigrateCommand
 
 port = os.getenv("PORT")
+host = os.getenv("HOST")
 app = create_app(os.getenv("APP_ENV"))
 manager = Manager(app)
 
@@ -14,7 +15,7 @@ def make_shell_context():
 
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command("db", MigrateCommand)
-manager.add_command("runserver", Server(host='localhost', port=port))
+manager.add_command("runserver", Server(host=host, port=port))
 
 
 if __name__ == "__main__":
