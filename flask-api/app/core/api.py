@@ -13,7 +13,7 @@ def show_all(page_id=1):
     batch = 20
     records = Record.query.order_by(
         Record.code.desc()
-    ).paginate(page_id, per_page=batch)
+    ).paginate(page_id, per_page=batch).items
     return records, 200
 
 @records.route("/records", methods=["POST"])
