@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, jsonify
 from app import db
 from . import records
 
@@ -11,10 +11,21 @@ def status():
 @records.route("/records/page/<int:page_id>", methods=["GET"])
 def show_all(page_id=1):
     batch = 20
-    records = Record.query.order_by(
-        Record.code.desc()
-    ).paginate(page_id, per_page=batch).items
-    return records, 200
+    pagination = Record.query.order_by(Record.code.desc()).paginate(page_id, per_page=batch)
+    records = pagination.items
+    prev = None
+    if pagination.has_prev:
+        prev = url_for('api.get_posts', page=page-1)
+    next = None
+    if pagination.has_next:
+        next = url_for('api.get_posts', page=page+1)
+
+    return jsonify({
+        'records':[record.serialise() for record in records],
+        'previous_url': prev,
+        'next_url': next,
+        'count': pagination.total
+    }), 200
 
 @records.route("/records", methods=["POST"])
 def create():
