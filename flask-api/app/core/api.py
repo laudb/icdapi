@@ -43,23 +43,23 @@ def create():
     result = result.save()
     return jsonify({ 'status': 'created' }), 201
 
-@records.route("/records/<int:id>", methods=["PUT"])
-def edit_one(id):
-    record = Record.query.get_or_404(id)
+@records.route("/records/<code>", methods=["PUT"])
+def edit_one(code):
+    record = Record.query.get_or_404(code)
     data = request.get_json()
-    for one in data:
-        record[one] = data[one] 
-    result = record.save()
-    return result.id, 201
+    for one in data.keys():
+        setattr(record, one, data[one]) 
+    record.save()
+    return jsonify({ 'status': 'updated' }), 201
 
-@records.route("/records/<int:id>", methods=["GET"])
-def get_one(id):
-    record = Record.query.get_or_404(id)
-    return record, 200
+@records.route("/records/<code>", methods=["GET"])
+def get_one(code):
+    record = Record.query.get_or_404(code)
+    return jsonify({ 'record': record.serialise() }), 200
 
-@records.route("/records/<int:id>", methods=["DELETE"])
-def delete_one(id):
-    record = Record.query.get_or_404(id)
+@records.route("/records/<code>", methods=["DELETE"])
+def delete_one(code):
+    record = Record.query.get_or_404(code)
     record.delete()
-    return id, 204
+    return jsonify({ 'status': 'Deleted.' }), 204
 
