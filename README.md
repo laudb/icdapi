@@ -38,6 +38,10 @@ db_port=''
 
 - python runner.py runserver
 
+OR 
+
+- gunicorn wsgi:app
+
 ## Method 2 (incomplete)
 
 - Clone the project from its repository
